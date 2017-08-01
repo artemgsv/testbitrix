@@ -1,0 +1,18 @@
+input {
+    height: 40px;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+input[placeholder] {
+    padding: 10px;
+}
+input[type="submit"] {
+    color: red;
+}
+form.register {
+    padding: 30px;
+    border: 2px solid black;
+    width: 40%;
+}
