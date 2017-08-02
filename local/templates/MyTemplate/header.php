@@ -16,6 +16,7 @@ IncludeTemplateLangFile(__FILE__);
             <li><a href="/index.php"><h1>Главная</h1></a></li>
             <li><a href="/register.php"><h1>Регистрация</h1></a></li>
             <li><a href="/authorize.php"><h1>Войти</h1></a></li>
+            <li><a href="/vacancy.php"><h1>Вакансии</h1></a></li>
         </ul>
     </header>
 
