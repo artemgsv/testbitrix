@@ -3,7 +3,7 @@ $arUrlRewrite = array(
         array(
             "CONDITION" => "#^/vacancy/#",
             "RULE" => "",
-            "PATH" => "/vacancies.php",
-            "ID" => "my:vacancy",
+            "PATH" => "/vacancy.php",
+            "ID" => "MyComponents:vacancy",
         ),
 );

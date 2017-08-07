@@ -2,11 +2,16 @@
 global $arResult;
 ?>
 <div class="container">
-    <div class="row">
-        <h2><?=$arResult["ITEM"]["NAME"]?></h2>
-        <p>Зарплата: от <?=$arResult["ITEM"]["PROPERTIES"]["payment"]["VALUE"]?> - до <?=$arResult["ITEM"]["PROPERTIES"]["payment_up_to"]["VALUE"]?></p>
-        <p><?=$arResult["ITEM"]["PROPERTIES"]["spec"]["NAME"]?>: <?=$arResult["ITEM"]["PROPERTIES"]["spec"]["VALUE"]?></p>
-        <p><?=$arResult["ITEM"]["PROPERTIES"]["employer"]["NAME"]?>: <?=$arResult["ITEM"]["PROPERTIES"]["employer"]["OBJECT"]["NAME"]?></p>
-        <p><a href="<?=$arResult["ITEM"]["LIST_PAGE_URL"]?>">Вернутся к списку</a></p>
-    </div>
+            <? foreach($arResult["VACANCY"] as $element) : ?>
+                <h1> <a href="<?=$element["DETAIL_PAGE_URL"]?>"><?= $element["NAME"]?></a></h1>
+                <p>Зарплата от : <?= $element["PROPERTY_SALARY_FROM_VALUE"]?></p>
+                <p>Зарплата до : <?= $element["PROPERTY_SALARY_UP_TO_VALUE"]?></p>
+                <p>Специальность: <?= $element["PROPERTY_SPECIAL_VALUE"]?></p>
+                <p>Название организации: <?= $element["PROPERTY_EMPLOYERS_PROPERTY_NAME_VALUE"]?></p>
+                <p>Адрес: <?= $element["PROPERTY_EMPLOYERS_PROPERTY_ADDRESS_VALUE"] ?></p>
+                <p>Эл.почта: <?= $element["PROPERTY_EMPLOYERS_PROPERTY_EMAIL_VALUE"] ?></p>
+                <p>Телефон: <?= $element["PROPERTY_EMPLOYERS_PROPERTY_NUMBER_VALUE"]?></p>
+            <? endforeach; ?>
+
+                <a href="<?= $arResult["PAGE_URL"] ?>">Вернуться к списку вакансий</a>
 </div>

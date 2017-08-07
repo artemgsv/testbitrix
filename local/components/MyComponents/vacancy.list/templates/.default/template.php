@@ -1,19 +1,15 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 global $arResult;
+//var_dump($arResult["VACANCY"]);
 ?>
 
 <div class="container">
-
-    <!--Items-->
-    <? foreach ($arResult["ITEMS"] as $item): ?>
-
-        <div class="row">
-            <h3><a href="<?=$item["DETAIL_PAGE_URL"]?>"><?=$item["NAME"]?></a></h3>
-            <p>Зарплата: от <?=$item["PROPERTIES"]["payment"]["VALUE"]?> - до <?=$item["PROPERTIES"]["payment_up_to"]["VALUE"]?></p>
-            <p><?=$item["PROPERTIES"]["spec"]["NAME"]?>: <?=$item["PROPERTIES"]["spec"]["VALUE"]?></p>
-            <p><?=$item["PROPERTIES"]["employer"]["NAME"]?>: <?=$item["PROPERTIES"]["employer"]["OBJECT"]["NAME"]?></p>
-        </div>
-
+    <? foreach($arResult["VACANCY"] as $element) : ?>
+        <h1> <a href="<?=$element["DETAIL_PAGE_URL"]?>"><?= $element["NAME"]?></a></h1>
+    <p>Зарплата от : <?= $element["PROPERTY_SALARY_FROM_VALUE"]?></p>
+    <p>Зарплата до : <?= $element["PROPERTY_SALARY_UP_TO_VALUE"]?></p>
+    <p>Название организации: <?= $element["PROPERTY_EMPLOYERS_NAME"]?></p>
+    <p>Специальность: <?= $element["PROPERTY_SPECIAL_VALUE"]?></p>
     <? endforeach; ?>
 
     <!--Pagination-->
