@@ -1,6 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 global $arResult;
-//var_dump($arResult["VACANCY"]);
 ?>
 
 <div class="container">

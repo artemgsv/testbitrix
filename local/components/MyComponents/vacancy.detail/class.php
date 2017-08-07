@@ -7,11 +7,12 @@ class CVacancyDetail extends CBitrixComponent {
             "name" => "asc",
         );
     }
-    private static function prepareFilter($id)
+    private function prepareFilter($id, $element_id)
     {
         return array(
             "ACTIVE" => "Y",
-            "IBLOCK_ID" => $id
+            "IBLOCK_ID" => $id,
+            "ID" => $element_id,
         );
     }
     private static function chooseProperties()
@@ -35,12 +36,12 @@ class CVacancyDetail extends CBitrixComponent {
             "nPageSize" => $pageSize,
         );
     }
-    public function executeComponent($property)
+    public function executeComponent()
     {
         global $arResult;
         CModule::IncludeModule("iblock");
         $sort = self::prepareSort();
-        $filter = self::prepareFilter(2);
+        $filter = self::prepareFilter($this->arParams["IBLOCK_ID"], $this->arParams["ELEMENT_ID"]);
         $navigation = self::paramsOfNavigation($this->arParams["PAGE_SIZE"]);
         $fields = self::chooseProperties();
         $vacancy = CIBlockElement::GetList($sort, $filter, false, $navigation,$fields);

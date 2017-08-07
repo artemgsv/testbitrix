@@ -37,7 +37,7 @@ class CVacancyList extends CBitrixComponent {
         global $arResult;
         CModule::IncludeModule("iblock");
         $sort = self::prepareSort();
-        $filter = self::prepareFilter(2);
+        $filter = self::prepareFilter($this->arParams["IBLOCK_ID"]);
         $navigation = self::paramsOfNavigation($this->arParams["PAGE_SIZE"]);
         $fields = self::chooseProperties();
         $vacancy = CIBlockElement::GetList($sort, $filter, false, $navigation,$fields);
